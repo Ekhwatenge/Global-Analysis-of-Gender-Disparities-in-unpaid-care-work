@@ -39,7 +39,7 @@ time_trend <- data_clean %>%
 
 print(time_trend)
 
-# Visualization: Trend over time
+# Trend over time  visualization
 ggplot(time_trend, aes(x = year, y = avg_value)) +
   geom_line() +
   geom_point() +
@@ -48,7 +48,7 @@ ggplot(time_trend, aes(x = year, y = avg_value)) +
        x = "Year",
        y = "Average Proportion (%)")
 
-# Visualization: Top 10 countries
+# Top 10 countries visualization
 top_10 <- data_clean %>%
   arrange(desc(value)) %>%
   head(10)
@@ -61,7 +61,7 @@ ggplot(top_10, aes(x = reorder(country, value), y = value)) +
        x = "Country",
        y = "Proportion (%)")
 
-# Regional analysis (assuming regions are part of country names)
+# Regional analysis 
 data_clean <- data_clean %>%
   mutate(region = case_when(
     str_detect(country, "Latin America|Mexico|Peru|Argentina|Bolivia") ~ "Latin America",
